@@ -100,8 +100,7 @@ footer a:hover {
 
 #entry-text {
   width: 30rem;
-  margin: 1rem auto;
-  margin: 0 auto;
+  margin: 5rem auto;
   max-width: 70%;
   padding: 1rem;
 }
@@ -113,12 +112,7 @@ footer a:hover {
 
 @media (max-width: 30em) {
   body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 4fr auto;
     grid-template-areas:
       "head  "
@@ -137,7 +131,6 @@ footer a:hover {
   }
 
   main {
-    /* width: 80%; */
     grid-area: main;
   }
 
@@ -155,7 +148,7 @@ footer a:hover {
 
   #entry-text {
     width: 20rem;
-    margin: 0.5rem auto;
+    margin: 4rem auto;
     max-width: 80%;
   }
 
