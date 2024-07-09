@@ -56,9 +56,8 @@ header button {
   font: inherit;
   padding: 0.5rem 1rem;
   justify-self: center;
-
-  background: #f67722;
-  border: 1px solid #f67722;
+  background: #20b2aa;
+  border: 1px solid #20b2aa;
   color: white;
   border-radius: 6px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
@@ -67,14 +66,9 @@ header button {
 
 header button:hover,
 header button:active {
-  background: #f3cc4b;
-  border-color: #f3cc4b;
-  color: #995200;
-}
-
-.logo span {
-  color: #fff;
-  font-size: 1.5rem;
+  background: #afeeee;
+  border-color: #afeeee;
+  color: #2f4f4f;
 }
 
 footer a,
@@ -90,4 +84,88 @@ footer a {
 footer a:hover {
   cursor: pointer;
   color: burlywood;
+}
+
+.logo span {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.card {
+  max-width: 20em;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+#entry-text {
+  width: 30rem;
+  margin: 1rem auto;
+  margin: 0 auto;
+  max-width: 70%;
+  padding: 1rem;
+}
+
+#entry-text p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+@media (max-width: 30em) {
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: auto 4fr auto;
+    grid-template-areas:
+      "head  "
+      "main "
+      "foot ";
+  }
+
+  header {
+    grid-area: head;
+    height: 3rem;
+  }
+
+  header button {
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  main {
+    /* width: 80%; */
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: foot;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    display: none;
+  }
+
+  #entry-text {
+    width: 20rem;
+    margin: 0.5rem auto;
+    max-width: 80%;
+  }
+
+  #entry-text p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .logo span {
+    color: #fff;
+    font-size: 1rem;
+  }
 }
