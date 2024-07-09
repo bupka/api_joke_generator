@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 4fr auto;
+  grid-template-areas:
+    "head head "
+    "main main"
+    "foot foot";
+}
+
+header {
+  grid-area: head;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 0 2.5rem;
+  background: cadetblue;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: foot;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 0 2.5rem;
+  background: cadetblue;
+}
+
+button:focus {
+  outline: none;
+}
+
+header button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  justify-self: center;
+
+  background: #f67722;
+  border: 1px solid #f67722;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+
+header button:hover,
+header button:active {
+  background: #f3cc4b;
+  border-color: #f3cc4b;
+  color: #995200;
+}
+
+.logo span {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+footer a,
+footer p {
+  font-size: 1.1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer a:hover {
+  cursor: pointer;
+  color: burlywood;
+}

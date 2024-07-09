@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Joke Generator</title>
-    <style scr="/styles/app.css"></style>
+    <link rel="stylesheet" href="/styles/app.css" />
+
     <script src="/scripts/app.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="logo">
+        <span>JokeAPI</span>
+      </div>
+      <div class="loader">
+        <button>Load Joke</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="entry-text" class="card">
+        <p>Your personal todo's database!</p>
+      </section>
+
+      <section id="joke" class="joke card"></section>
+    </main>
+
+    <footer class="footer-content">
+      <a href="https://v2.jokeapi.dev/" target="_blank">Joke API Site</a>
+      <p>&copy; 2024 JokeAPI. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
