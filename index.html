@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Joke Generator</title>
     <link rel="stylesheet" href="/styles/app.css" />
-
-    <script src="/scripts/app.js"></script>
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script src="/scripts/app.js" defer></script>
   </head>
   <body>
     <header>
@@ -14,7 +14,7 @@
         <span>JokeAPI</span>
       </div>
       <div class="loader">
-        <button>Load Joke</button>
+        <button id="load-joke">Load Joke</button>
       </div>
     </header>
 
@@ -23,7 +23,7 @@
         <p>Your personal todo's database!</p>
       </section>
 
-      <section id="joke" class="joke card"></section>
+      <section id="joke" class="card"></section>
     </main>
 
     <footer class="footer-content">

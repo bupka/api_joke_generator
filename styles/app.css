@@ -98,14 +98,16 @@ footer a:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-#entry-text {
+#entry-text,
+#joke {
   width: 30rem;
   margin: 5rem auto;
   max-width: 70%;
   padding: 1rem;
 }
 
-#entry-text p {
+#entry-text p,
+#joke p {
   font-size: 1.2rem;
   text-align: center;
 }
@@ -115,9 +117,9 @@ footer a:hover {
     grid-template-columns: 1fr;
     grid-template-rows: auto 4fr auto;
     grid-template-areas:
-      "head  "
-      "main "
-      "foot ";
+      "head"
+      "main"
+      "foot";
   }
 
   header {
