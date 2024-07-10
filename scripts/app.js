@@ -9,6 +9,8 @@ const params = [
   "idRange=0-100",
 ];
 
+jokeSection.style.display = "none";
+
 document.getElementById("load-joke").addEventListener("click", () => {
   axios
     .get(api_url + params.join("&"))
@@ -19,6 +21,7 @@ document.getElementById("load-joke").addEventListener("click", () => {
       let jokeText = jokeSection.querySelector("p");
       if (!jokeText) {
         jokeText = document.createElement("p");
+        jokeSection.style.display = "block";
         jokeSection.appendChild(jokeText);
       }
 
