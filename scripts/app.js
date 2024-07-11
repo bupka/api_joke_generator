@@ -1,37 +1,47 @@
 const entryText = document.getElementById("entry-text");
 const jokeSection = document.getElementById("joke");
 
-const api_url = "https://v2.jokeapi.dev/joke/Programming/";
-
 const params = [
-  "blacklistFlags=nsfw,religious,racist",
+  "blacklistFlags=nsfw,religious,racist,sexist,explicit",
   "type=single",
-  "idRange=0-100",
 ];
 
-jokeSection.style.display = "none";
-
 document.getElementById("load-joke").addEventListener("click", () => {
+  const category = getSelectedValue();
+  if (!category) {
+    alert("Please select a category.");
+    return;
+  }
+
+  const api_url = `https://v2.jokeapi.dev/joke/${category}/`;
+
   axios
     .get(api_url + params.join("&"))
     .then((response) => {
       const joke = response.data.joke;
+      const label = response.data.category;
       entryText.style.display = "none";
 
-      let jokeText = jokeSection.querySelector("p");
-      if (!jokeText) {
-        jokeText = document.createElement("p");
-        jokeSection.style.display = "block";
-        jokeSection.appendChild(jokeText);
-      }
-
       if (joke && joke.toLowerCase() !== "undefined") {
-        jokeText.innerHTML = joke;
+        jokeSection.style.display = "block";
+        jokeSection.innerHTML = `
+        <h3>Category: <label>${label}</label></h3>
+        <p>${joke}</p>
+        `;
       } else {
-        jokeText.innerHTML = "🙂";
+        jokeSection.style.display = "block";
+
+        jokeSection.innerHTML = "<p class='emoji'>🙂</p>";
       }
     })
     .catch((error) => {
       console.error("There was an error!", error);
     });
 });
+
+function getSelectedValue() {
+  let selectElement = document.getElementById("joke-select");
+  category = selectElement.value;
+  console.log("Selected value: " + category);
+  return category;
+}
