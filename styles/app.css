@@ -32,9 +32,19 @@ header {
   padding: 0 2.5rem;
   background: cadetblue;
 }
+.box {
+  margin-left: 1rem;
+}
+
+.box:first-child {
+  margin-right: auto;
+}
 
 main {
   grid-area: main;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 footer {
@@ -147,6 +157,7 @@ select {
 .logo span {
   color: #fff;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .card {
@@ -168,6 +179,8 @@ select {
   max-width: 70%;
   padding: 1rem;
   overflow-wrap: break-word;
+  letter-spacing: 2px;
+  line-height: 1.5rem;
 }
 
 #entry-text p {
