@@ -13,29 +13,21 @@ document.getElementById("load-joke").addEventListener("click", () => {
     return;
   }
 
-  const api_url = `https://v2.jokeapi.dev/joke/${category}/`;
+  const api_url = `https://v2.jokeapi.dev/joke/${category}?${params.join("&")}`;
+
+  displayLoading();
 
   axios
-    .get(api_url + params.join("&"))
+    .get(api_url)
     .then((response) => {
-      const joke = response.data.joke;
-      const label = response.data.category;
-      entryText.style.display = "none";
-
-      if (joke && joke.toLowerCase() !== "undefined") {
-        jokeSection.style.display = "block";
-        jokeSection.innerHTML = `
-        <h3>Category: <label>${label}</label></h3>
-        <p>${joke}</p>
-        `;
-      } else {
-        jokeSection.style.display = "block";
-
-        jokeSection.innerHTML = "<p class='emoji'>🙂</p>";
-      }
+      setTimeout(() => {
+        hideLoading();
+        displayData(response.data);
+      }, 150);
     })
     .catch((error) => {
-      console.error("There was an error!", error);
+      hideLoading();
+      handleError(error);
     });
 });
 
@@ -44,4 +36,38 @@ function getSelectedValue() {
   category = selectElement.value;
   console.log("Selected value: " + category);
   return category;
+}
+
+function displayData(data) {
+  const joke = data.joke;
+  const label = data.category;
+
+  jokeSection.style.display = "block";
+
+  if (joke && joke.toLowerCase() !== "undefined") {
+    jokeSection.style.display = "block";
+    jokeSection.innerHTML = `
+      <h3>Category: <label>${label}</label></h3>
+      <p>${joke}</p>
+      `;
+  } else {
+    jokeSection.style.display = "block";
+    jokeSection.innerHTML = "<p class='emoji'>🙂</p>";
+  }
+}
+
+function displayLoading() {
+  entryText.style.display = "none";
+  jokeSection.style.display = "block";
+  jokeSection.innerHTML = "<p>Loading...</p>";
+}
+
+function hideLoading() {
+  jokeSection.innerHTML = "";
+}
+
+function handleError(error) {
+  console.log("There was an error!", error);
+  jokeSection.innerHTML =
+    "<p><span>🚫</span> Failed to fetch joke.Please try again.</p>";
 }
